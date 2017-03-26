@@ -16,20 +16,20 @@ public class HomeControllerTest {
 
     @Test
     public void testHome1() {
-        HomeController controller = new HomeController();
+        DemoController controller = new DemoController();
         controller.home();
     }
 
     @Test
     public void testHome2() {
-        HomeController controller = new HomeController();
+        DemoController controller = new DemoController();
         //进行断言，测试返回的数据是不是hello，返回结果为失败的
         Assert.assertEquals("hello", controller.home());
     }
 
     @Test
     public void testHome3() throws Exception {
-        HomeController controller = new HomeController();
+        DemoController controller = new DemoController();
         //搭建MockMvc
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
         mockMvc.perform(MockMvcRequestBuilders.get("/hello")).andExpect(view().name("index"));
