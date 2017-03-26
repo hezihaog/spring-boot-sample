@@ -12,7 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * 使用下边的几种方式去测试Controller
  * Created by xuliugen on 2017/3/26.
  */
-public class HomeControllerTest {
+public class DemoControllerTest {
 
     @Test
     public void testHome1() {
