@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan(basePackageClasses = {PathInterface.class})
-public class WebApplication {
+    public class WebApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(WebApplication.class, args);
