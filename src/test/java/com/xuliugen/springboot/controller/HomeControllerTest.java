@@ -9,6 +9,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 /**
+ * 使用下边的几种方式去测试Controller
  * Created by xuliugen on 2017/3/26.
  */
 public class HomeControllerTest {
@@ -17,13 +18,12 @@ public class HomeControllerTest {
     public void testHome1() {
         HomeController controller = new HomeController();
         controller.home();
-
     }
 
     @Test
     public void testHome2() {
         HomeController controller = new HomeController();
-        //进行断言，测试返回的数据是不是hello
+        //进行断言，测试返回的数据是不是hello，返回结果为失败的
         Assert.assertEquals("hello", controller.home());
     }
 
