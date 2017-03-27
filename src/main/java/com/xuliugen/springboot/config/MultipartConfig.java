@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 
 /**
+ * 文件上传MultipartResolver
  * Created by xuliugen on 2017/3/27.
  */
 @Configuration
