@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Spring MVC相关配置
  * Created by xuliugen on 2017/3/26.
  */
 @Configuration

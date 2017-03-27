@@ -7,6 +7,7 @@ import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
 
 /**
+ * Spring MVC的DispatcherServlet配置
  * Created by xuliugen on 2017/3/26.
  */
 @Configuration

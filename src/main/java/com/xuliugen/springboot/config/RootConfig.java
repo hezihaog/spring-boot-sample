@@ -7,6 +7,7 @@ import org.springframework.context.annotation.FilterType;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
+ * ContextLoaderListener Spring上下文
  * Created by xuliugen on 2017/3/26.
  */
 @Configuration
