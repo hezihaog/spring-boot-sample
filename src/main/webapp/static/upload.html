@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+</head>
+<body>
+<div>
+    <form method="post" enctype="multipart/form-data" action="/uploadByByte.do">
+        uploadByByte: </br>
+        <input type="file" name="file" accept="image/png" value="uploadByByte"/>
+        <button type="submit" style="width: 100px;height: 30px;">上传</button>
+    </form>
+</div>
+</br></br>
+<div>
+    <form method="post" enctype="multipart/form-data" action="/uploadByMultipart">
+        uploadByMultipart: </br>
+        <input type="file" name="file" accept="image/png" value="uploadByMultipart"/>
+        <button type="submit" style="width: 100px;height: 30px;">上传</button>
+    </form>
+</div>
+</br></br>
+<div>
+    <form method="post" enctype="multipart/form-data" action="/uploadByPart">
+        uploadByPart: </br>
+        <input type="file" name="file" accept="image/png" value="uploadByPart"/>
+        <button type="submit" style="width: 100px;height: 30px;">上传</button>
+    </form>
+</div>
+</br></br>
+
+</body>
+</html>

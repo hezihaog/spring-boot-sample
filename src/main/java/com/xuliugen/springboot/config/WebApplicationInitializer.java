@@ -3,6 +3,9 @@ package com.xuliugen.springboot.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration;
+
 /**
  * Created by xuliugen on 2017/3/26.
  */
@@ -33,5 +36,19 @@ public class WebApplicationInitializer extends AbstractAnnotationConfigDispatche
     @Override
     protected String[] getServletMappings() {
         return new String[]{"/**"};
+    }
+
+    /**
+     * 重写这个方法，进行设置文件上传时候的参数
+     * @param registration
+     */
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setMultipartConfig(
+                /**
+                 * 这里可以使用MultipartConfigElement的不同构造方法进行设置不同的参数设置
+                 */
+                new MultipartConfigElement("/files/", 20 * 1024, 40 * 1024, 0)
+        );
     }
 }
