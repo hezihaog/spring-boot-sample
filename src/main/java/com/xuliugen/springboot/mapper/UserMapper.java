@@ -25,7 +25,9 @@ public interface UserMapper {
 
     public int deleteByPrimaryKey(@Param("id") String id);
 
-    public int selectByPrimaryKey(@Param("id") String id);
+    public User selectByPrimaryKey(@Param("id") String id);
+
+    public User selectByUserName(@Param("username") String username);
 
     public List<User> listUsers();
 }

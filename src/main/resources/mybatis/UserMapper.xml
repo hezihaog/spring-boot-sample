@@ -14,6 +14,13 @@
         where id = #{id,jdbcType=VARCHAR}
     </select>
 
+    <select id="selectByUserName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        *
+        from tb_user
+        where username = #{username,jdbcType=VARCHAR}
+    </select>
+
     <select id="listUsers" resultMap="BaseResultMap">
         select
         *

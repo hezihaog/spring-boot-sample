@@ -23,6 +23,7 @@ import java.util.List;
  * Created by xuliugen on 2017/3/26.
  */
 @Controller
+@RequestMapping(value = "/user", produces = {ConstCommonString.APP_JSON_UTF_8})
 public class UserController {
 
     transient final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -91,5 +92,16 @@ public class UserController {
         logger.info("Request Params--");
 
         return userService.listUser();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ModelAndView login(String username, String password) {
+        System.out.println(username + "----" + password);
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("success");
+
+        return modelAndView;
     }
 }
