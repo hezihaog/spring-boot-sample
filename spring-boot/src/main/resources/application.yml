@@ -25,7 +25,14 @@ server:
   #错误的Controller地址
 #  error:
 #    path: /error
+
+#设置返回编码为UTF-8，解决返回中文乱码问题
 spring:
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
 #  profiles: dev
   # MySQL数据源配置
   datasource:
