@@ -26,6 +26,17 @@ server:
 #  error:
 #    path: /error
 
+#Spring Boot
+#management:
+#    security:
+#    #是否启用安全
+#    enabled: false
+##    enabled: true
+#    endpoints:
+#    shutdown:
+#    #开启shutdown端点
+#    enabled: true
+
 #设置返回编码为UTF-8，解决返回中文乱码问题
 spring:
   http:
