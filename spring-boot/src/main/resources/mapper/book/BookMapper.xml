@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feon.springboot.mapper.BookMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="bookResultMap" type="Book">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="type" property="type" />
+        <result column="postDate" property="postDate" />
+        <result column="message" property="message" />
+    </resultMap>
+
+    <!-- 参数集 -->
+    <parameterMap id="bookParameterMap" type="Book">
+        <parameter property="name" resultMap="bookResultMap" />
+        <parameter property="type" resultMap="bookResultMap" />
+    </parameterMap>
+    
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, type, postDate, message
+    </sql>
+
+    <select id="showList" resultMap="bookResultMap">
+        select <include refid="Base_Column_List" />
+        from book
+    </select>
+    <!--order by id desc-->
+    
+    <select id="showListWithParamMap" parameterMap="bookParameterMap" resultMap="bookResultMap">
+        select <include refid="Base_Column_List" />
+        from book
+        where type = #{type} and name = #{name}
+    </select>
+    <!--order by id desc-->
+
+    <select id="showListWithParamObj" parameterType="com.feon.springboot.model.dto.BookDTO" resultMap="bookResultMap">
+        select <include refid="Base_Column_List" />
+        from book
+        where type = #{type}
+    </select>
+</mapper>

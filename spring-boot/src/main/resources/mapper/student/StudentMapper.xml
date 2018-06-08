@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feon.springboot.mapper.StudentMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="student_result_map" type="Student">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="gender" property="gender" />
+        <result column="age" property="age" />
+    </resultMap>
+
+    <!-- 通用学生表返回的字段列 -->
+    <sql id="base_column_List">
+        id, name, gender, age
+    </sql>
+
+    <select id="findAllWithPage" resultMap="student_result_map">
+        select <include refid="base_column_List"/>
+        from student
+    </select>
+</mapper>

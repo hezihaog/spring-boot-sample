@@ -1,0 +1,127 @@
+server:
+  port: 8011
+  servlet:
+    context-path: / # web上下文路径，默认/
+  tomcat:
+    uri-encoding: utf-8
+    #到达最大请求数后，缓冲请求的队列，该队列可允许的元素个数（超出该数后进入拒绝策略）
+    accept-count: 1000
+    #最大请求数，如果达到这个值，将请求放置到accept-count
+    max-connections: 500
+    #最大工作线程数
+    max-threads: 500
+    #内容最大长度，默认不限制
+#    max-http-post-size:
+    #请求头最大长度，默认不限制
+#    max-http-header-size:
+#    accesslog:
+#      enabled: true
+#      directory: D:/feonLogs
+#  address: 127.0.0.1
+  #单位：秒
+#  servlet:
+#    session:
+#      timeout: 3600
+  #错误的Controller地址
+#  error:
+#    path: /error
+spring:
+#  profiles: dev
+  # MySQL数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/school?characterEncoding=utf8&useSSL=false
+    username: root
+    password: hezihao
+    driver-class-name: com.mysql.jdbc.Driver
+    platform: mysql
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 200
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置检测关闭空闲连接的时间间隔，单位：毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中的最小生存时间，单位：毫秒
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后，监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,slf4j
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    #useGlobalDataSourceStat: true
+  # JPA配置
+#  jpa:
+#    database: mysql
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL5Dialect
+#  data:
+#    # MongoDB配置
+#    mongodb:
+#      uri: mongodb://master:60000,slave1:60000,slave2:60000/shard_test
+#    # Elasticsearch配置
+#    elasticsearch:
+#      cluster-name: feon-es
+#      cluster-nodes: localhost:9300
+#  # Redis配置
+#  redis:
+#    host: master
+#    port: 6379
+#  # SpringBoot缓存类型配置（本地缓存）
+#  cache:
+#    type: simple
+#  session:
+#    store-type: none
+
+# 视图模板配置
+#  freemarker:
+#    cache: false
+#  thymeleaf:
+#    cache: false
+#  groovy:
+#    template:
+#      cache: false
+
+# 日志配置
+#logging:
+#  level:
+#    root: info # 日志默认级别
+#    org: warn # org包下的日志级别
+#    com.feon: debug # 自定义包下的日志级别
+#  file: D:/FeonLog/my.log # 日志路径（绝对路径或相对路径都可以）
+#  path: D:/FeonLog # 日志目录（只能定义目录，不能定义文件名，文件名固定为spring.log）
+#  file:
+#    max-size: 10MB # 日志文件大小，默认10MB
+
+  # %level，表示日志级别
+  # %date，表示日志时间，ISO8601是标准日期输出，相当于yyyy-MM-dd HH:mm:ss.SSS
+  # %logger，用于输出Logger的名字，包名+类名，{n}限定了输出长度，如果输出长度不够，尽可能显示类名、压缩包名
+  # %thread，当前线程名
+  # %M，日志发生时的方法名字
+  # %L，日志调用所在代码行，线上运行时不建议使用此参数，因为获取代码行对性能有消耗
+  # %m，日志消息
+  # %n，日志换行
+#  pattern:
+#    console: %level %date{yyyy-MM-dd HH:mm:ss} %logger{20}.%M %L :%m%n
+#    file: %level %date{ISO8601} [%thread] %logger{20}.%M %L :%m%n
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  typeAliasesPackage: com.feon.springboot.model
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 2
+    #驼峰下划线转换
+#    db-column-underline: true
+
